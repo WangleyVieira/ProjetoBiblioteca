@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>Cadastro de usuários</h1>
+<form action="#" th:action="@{/salvar}" th:object="${usuario}" method="post">
+	Nome: <input type="text" th:field="*{nome}"> 
+	<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span><br/>
+	
+	CPF: <input type="text" th:field="*{cpf}"> 
+	<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span><br/>
+	
+	Nascimento: <input type="text" th:field="*{dataNascimento}"> 
+	<span th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"></span><br/>
+	
+	E-mail: <input type="text" th:field="*{email}"> 
+	<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br/>
+	
+	Pontos: <input type="text" th:field="*{pontos}"> 
+	<span th:if="${#fields.hasErrors('pontos')}" th:errors="*{pontos}"></span><br/>
+	
+	<input type="submit" value="Salvar"/>
+
+</form>
+</body>
+</html>

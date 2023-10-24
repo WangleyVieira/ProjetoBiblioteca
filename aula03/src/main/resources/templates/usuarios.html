@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Lista de Usuários</h1>
+	<a href="/adicionar">Novo usuário</a><br/>
+	<table>
+    <thead>
+        <tr>
+            <th> Nome </th>
+            <th> CPF </th>
+            <th> Nascimento </th>
+            <th> E-mail </th>
+            <th> Pontos </th>            
+        </tr>
+    </thead>
+    <tbody>
+	<tr th:if="${usuarios.empty}">
+            <td colspan="2"> Sem usuários </td>
+        </tr>
+        <tr th:each="usuario : ${usuarios}">
+            <td><span th:text="${usuario.nome}"> Nome </span></td>
+            <td><span th:text="${usuario.cpf}"> Cpf </span></td>
+            <td><span th:text="${usuario.dataNascimento}"> Nascimento </span></td>
+            <td><span th:text="${usuario.email}"> E-mail </span></td>
+            <td><span th:text="${usuario.pontos}"> Pontos </span></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
