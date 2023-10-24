@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+	<!-- realiza a verificação de usuarios para entao exibir a nav -->
+	<div th:fragment="navGenerica">
+		<div sec:authorize="hasAuthority('USER')">
+			<div th:replace="auth/user/user-nav :: nav"></div>
+		</div>
+		
+		<div sec:authorize="hasAuthority('ADMIN')">
+			<div th:replace="auth/admin/admin-nav :: nav"></div>
+		</div>
+		
+		<div sec:authorize="hasAuthority('BIBLIOTECARIO')">
+			<div th:replace="auth/biblio/biblio-nav :: nav"></div>
+		</div>	
+		
+		<div sec:authorize="!isAuthenticated()">
+            <div th:replace="fragments/publica-nav :: nav"></div>
+        </div>	
+	</div>
+</body>
+
+</html>
